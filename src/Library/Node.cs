@@ -4,34 +4,40 @@ using System;
 
 namespace Library
 {
-    public class Node
+    public class Node<H>: INode<H> 
     {
-        private int number;
+        private H content;
 
-        private List<Node> children = new List<Node>();
+        private List<Node<H>> children = new List<Node<H>>();
 
-        public int Number {
+        public H Content 
+        {
             get
             {
-                return this.number;
+                return this.content;
             }
         }
 
-        public ReadOnlyCollection<Node> Children { 
+        public ReadOnlyCollection<Node<H>> Children 
+        { 
             get
             {
                 return this.children.AsReadOnly();
             }
         }
 
-        public Node(int number)
+        public Node(H h)
         {
-            this.number = number;
+            this.content = h;
         }
 
-        public void AddChildren(Node n)
+        public void AddChildren(Node<H> n)
         {
             this.children.Add(n);
+        }
+
+        public void accept(IVisitor<H> visitor){
+            visitor.Visit(this);
         }
         
     }
