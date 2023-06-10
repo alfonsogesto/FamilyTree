@@ -10,7 +10,7 @@ namespace Program
             Person person1 = new Person ("Francisco", 87);
             Person person2 = new Person ("Aitana", 18);
             Person person3 = new Person ("Alfonso", 19);
-            Person person4 = new Person ("Mike", 26);
+            Person person4 = new Person ("Monserrat", 26);
             Person person5 = new Person ("Jacqueline", 65);
             Person person6 = new Person ("Mateo", 21);
             Person person7 = new Person ("Agustin", 47);
@@ -41,8 +41,8 @@ namespace Program
             MayorEdad mayor = new MayorEdad();
             System.Console.WriteLine(mayor.Older(n6));
 
-            VisitorNameLength largo = new VisitorNameLength();
-            System.Console.WriteLine(largo.NameLength(n6));
+            VisitorNameLength length = new VisitorNameLength();
+            System.Console.WriteLine(length.NameLength(n6));
         }
     }
 }
